@@ -1,0 +1,9 @@
+E:\Users\Kalininator\Documents\GitHub\Cipher\Cipher\Cipher\bin\Debug\Cipher.exe.config
+E:\Users\Kalininator\Documents\GitHub\Cipher\Cipher\Cipher\bin\Debug\Cipher.exe
+E:\Users\Kalininator\Documents\GitHub\Cipher\Cipher\Cipher\bin\Debug\Cipher.pdb
+E:\Users\Kalininator\Documents\GitHub\Cipher\Cipher\Cipher\obj\Debug\Cipher.csprojResolveAssemblyReference.cache
+E:\Users\Kalininator\Documents\GitHub\Cipher\Cipher\Cipher\obj\Debug\Cipher.form_main.resources
+E:\Users\Kalininator\Documents\GitHub\Cipher\Cipher\Cipher\obj\Debug\Cipher.Properties.Resources.resources
+E:\Users\Kalininator\Documents\GitHub\Cipher\Cipher\Cipher\obj\Debug\Cipher.csproj.GenerateResource.Cache
+E:\Users\Kalininator\Documents\GitHub\Cipher\Cipher\Cipher\obj\Debug\Cipher.exe
+E:\Users\Kalininator\Documents\GitHub\Cipher\Cipher\Cipher\obj\Debug\Cipher.pdb
