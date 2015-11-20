@@ -27,7 +27,22 @@ namespace Cipher
 
         private void btn_decrypt_Click(object sender, EventArgs e)
         {
-            txtbox_output.Text = Encrypter.ShiftString(txtbox_input.Text, -27);
+
+            if (radiobutton_generateall.Checked)
+            {
+                txtbox_output.Text = "";
+                for(int i = 1; i < 26; i ++)
+                {
+                    txtbox_output.Text += ("Shift by " + i + ":" + System.Environment.NewLine);
+                    txtbox_output.Text += Encrypter.ShiftString(txtbox_input.Text, i) + System.Environment.NewLine + System.Environment.NewLine;
+                }
+            }
+            else if (radiobutton_generatesinglevalue.Checked)
+            {
+                txtbox_output.Text = Encrypter.ShiftString(txtbox_input.Text, (int)inp_shiftvalue.Value);
+            }
+
+            
         }
 
         private void btn_savetofile_Click(object sender, EventArgs e)
@@ -41,7 +56,17 @@ namespace Cipher
                 MessageBox.Show(err.Message);
             }
         }
-        
-        
+
+        private void radiobutton_generatesinglevalue_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radiobutton_generatesinglevalue.Checked)
+            {
+                inp_shiftvalue.Enabled = true;
+            }
+            else
+            {
+                inp_shiftvalue.Enabled = false;
+            }
+        }
     }
 }
