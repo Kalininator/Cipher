@@ -34,14 +34,13 @@ namespace Cipher
                 for(int i = 1; i < 26; i ++)
                 {
                     txtbox_output.Text += ("Shift by " + i + ":" + System.Environment.NewLine);
-                    txtbox_output.Text += Encrypter.ShiftString(txtbox_input.Text, i) + System.Environment.NewLine + System.Environment.NewLine;
+                    txtbox_output.Text += Encrypter.ShiftString(txtbox_input.Text.ToUpper(), i) + System.Environment.NewLine + System.Environment.NewLine;
                 }
             }
             else if (radiobutton_generatesinglevalue.Checked)
             {
-                txtbox_output.Text = Encrypter.ShiftString(txtbox_input.Text, (int)inp_shiftvalue.Value);
+                txtbox_output.Text = Encrypter.ShiftString(txtbox_input.Text.ToUpper(), (int)inp_shiftvalue.Value);
             }
-
             
         }
 
@@ -67,6 +66,11 @@ namespace Cipher
             {
                 inp_shiftvalue.Enabled = false;
             }
+        }
+
+        private void predictToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtbox_output.Text = Encrypter.ShiftString(txtbox_input.Text, FrequencyAnalysis.PredictShiftValue(txtbox_input.Text));
         }
     }
 }

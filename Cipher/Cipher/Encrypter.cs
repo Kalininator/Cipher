@@ -1,39 +1,44 @@
 ﻿using System;
-
-public class Encrypter
+namespace Cipher
 {
-    public static String ShiftString(String str, int shift)
+    public class Encrypter
     {
-        String temp = "";
-        for (int i = 0; i < str.Length; i++)
+        public static String ShiftString(String str, int shift)
         {
-            temp += ShiftChar(str[i], shift);
+            String temp = "";
+            for (int i = 0; i < str.Length; i++)
+            {
+                temp += ShiftChar(str[i], shift);
+            }
+            return temp;
         }
-        return temp;
-    }
-    public static char ShiftChar(char x, int shift)
-    {
+        public static char ShiftChar(char x, int shift)
+        {
+            x = x.ToString().ToUpper()[0];
+            if (shift < 0)
+            {
+                int shiftabs = Math.Abs(shift);
+                shiftabs %= 26;
+                shift = 26 - shiftabs;
+            }
+            if ((int)x > 64 && (int)x < 91)
+            {
+                return IntToChar((CharToInt(x) + shift) % 26);
+            }
+            else
+            {
+                return x;
+            }
+        }
 
-        if(shift < 0)
+        public static char IntToChar(int val)
         {
-            int shiftabs = Math.Abs(shift);
-            shiftabs %= 26;
-            shift = 26 - shiftabs;
+            return (char)(val + 65);
         }
-
-        if ((int)x < 91 && (int)x > 64)
+        public static int CharToInt(Char val)
         {
-            int initChar = (int)x;
-            return (char)((((initChar - 65) + shift) % 26) + 65);
-        }
-        else if ((int)x < 122 && (int)x > 96)
-        {
-            int initChar = (int)x;
-            return (char)((((initChar - 97) + shift) % 26) + 97);
-        }
-        else
-        {
-            return x;
+            val = val.ToString().ToUpper()[0];
+            return (int)val -65;
         }
     }
 }

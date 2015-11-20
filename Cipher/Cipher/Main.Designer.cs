@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.inputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btn_readfromfile = new System.Windows.Forms.ToolStripMenuItem();
             this.txtbox_input = new System.Windows.Forms.TextBox();
             this.btn_decrypt = new System.Windows.Forms.Button();
             this.txtbox_output = new System.Windows.Forms.TextBox();
@@ -41,6 +39,9 @@
             this.radiobutton_generateall = new System.Windows.Forms.RadioButton();
             this.radiobutton_generatesinglevalue = new System.Windows.Forms.RadioButton();
             this.inp_shiftvalue = new System.Windows.Forms.NumericUpDown();
+            this.btn_readfromfile = new System.Windows.Forms.ToolStripMenuItem();
+            this.inputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.predictToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.layout_groupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inp_shiftvalue)).BeginInit();
@@ -49,27 +50,13 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.inputToolStripMenuItem});
+            this.inputToolStripMenuItem,
+            this.predictToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(313, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // inputToolStripMenuItem
-            // 
-            this.inputToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btn_readfromfile});
-            this.inputToolStripMenuItem.Name = "inputToolStripMenuItem";
-            this.inputToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.inputToolStripMenuItem.Text = "Input";
-            // 
-            // btn_readfromfile
-            // 
-            this.btn_readfromfile.Name = "btn_readfromfile";
-            this.btn_readfromfile.Size = new System.Drawing.Size(152, 22);
-            this.btn_readfromfile.Text = "Read From File";
-            this.btn_readfromfile.Click += new System.EventHandler(this.readFromFileToolStripMenuItem_Click);
             // 
             // txtbox_input
             // 
@@ -190,6 +177,28 @@
             this.inp_shiftvalue.Size = new System.Drawing.Size(128, 20);
             this.inp_shiftvalue.TabIndex = 2;
             // 
+            // btn_readfromfile
+            // 
+            this.btn_readfromfile.Name = "btn_readfromfile";
+            this.btn_readfromfile.Size = new System.Drawing.Size(152, 22);
+            this.btn_readfromfile.Text = "Read From File";
+            this.btn_readfromfile.Click += new System.EventHandler(this.readFromFileToolStripMenuItem_Click);
+            // 
+            // inputToolStripMenuItem
+            // 
+            this.inputToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_readfromfile});
+            this.inputToolStripMenuItem.Name = "inputToolStripMenuItem";
+            this.inputToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.inputToolStripMenuItem.Text = "Input";
+            // 
+            // predictToolStripMenuItem
+            // 
+            this.predictToolStripMenuItem.Name = "predictToolStripMenuItem";
+            this.predictToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.predictToolStripMenuItem.Text = "Predict";
+            this.predictToolStripMenuItem.Click += new System.EventHandler(this.predictToolStripMenuItem_Click);
+            // 
             // form_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -218,9 +227,7 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem inputToolStripMenuItem;
         private System.Windows.Forms.TextBox txtbox_input;
-        private System.Windows.Forms.ToolStripMenuItem btn_readfromfile;
         private System.Windows.Forms.Button btn_decrypt;
         private System.Windows.Forms.TextBox txtbox_output;
         private System.Windows.Forms.OpenFileDialog dialog_openfile;
@@ -230,6 +237,9 @@
         private System.Windows.Forms.NumericUpDown inp_shiftvalue;
         private System.Windows.Forms.RadioButton radiobutton_generatesinglevalue;
         private System.Windows.Forms.RadioButton radiobutton_generateall;
+        private System.Windows.Forms.ToolStripMenuItem inputToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btn_readfromfile;
+        private System.Windows.Forms.ToolStripMenuItem predictToolStripMenuItem;
     }
 }
 
