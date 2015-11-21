@@ -29,22 +29,37 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.inputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_readfromfile = new System.Windows.Forms.ToolStripMenuItem();
+            this.predictToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtbox_input = new System.Windows.Forms.TextBox();
             this.btn_decrypt = new System.Windows.Forms.Button();
             this.txtbox_output = new System.Windows.Forms.TextBox();
             this.dialog_openfile = new System.Windows.Forms.OpenFileDialog();
             this.btn_savetofile = new System.Windows.Forms.Button();
             this.dialog_savefile = new System.Windows.Forms.SaveFileDialog();
-            this.layout_groupbox = new System.Windows.Forms.GroupBox();
-            this.radiobutton_generateall = new System.Windows.Forms.RadioButton();
-            this.radiobutton_generatesinglevalue = new System.Windows.Forms.RadioButton();
+            this.caesar_layout_groupbox = new System.Windows.Forms.GroupBox();
             this.inp_shiftvalue = new System.Windows.Forms.NumericUpDown();
-            this.btn_readfromfile = new System.Windows.Forms.ToolStripMenuItem();
-            this.inputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.predictToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.caesar_radiobutton_generatesinglevalue = new System.Windows.Forms.RadioButton();
+            this.caesar_radiobutton_generateall = new System.Windows.Forms.RadioButton();
+            this.tabSystem = new System.Windows.Forms.TabControl();
+            this.tab_caesar = new System.Windows.Forms.TabPage();
+            this.tab_affine = new System.Windows.Forms.TabPage();
+            this.caesar_radiobutton_predict = new System.Windows.Forms.RadioButton();
+            this.btn_encrypt = new System.Windows.Forms.Button();
+            this.affine_lbl_formula = new System.Windows.Forms.Label();
+            this.affine_lbl_shiftby = new System.Windows.Forms.Label();
+            this.affine_inp_m = new System.Windows.Forms.NumericUpDown();
+            this.affine_label_x = new System.Windows.Forms.Label();
+            this.affine_inp_c = new System.Windows.Forms.NumericUpDown();
             this.menuStrip1.SuspendLayout();
-            this.layout_groupbox.SuspendLayout();
+            this.caesar_layout_groupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inp_shiftvalue)).BeginInit();
+            this.tabSystem.SuspendLayout();
+            this.tab_caesar.SuspendLayout();
+            this.tab_affine.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.affine_inp_m)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.affine_inp_c)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -54,9 +69,31 @@
             this.predictToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(313, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(224, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // inputToolStripMenuItem
+            // 
+            this.inputToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_readfromfile});
+            this.inputToolStripMenuItem.Name = "inputToolStripMenuItem";
+            this.inputToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.inputToolStripMenuItem.Text = "Input";
+            // 
+            // btn_readfromfile
+            // 
+            this.btn_readfromfile.Name = "btn_readfromfile";
+            this.btn_readfromfile.Size = new System.Drawing.Size(152, 22);
+            this.btn_readfromfile.Text = "Read From File";
+            this.btn_readfromfile.Click += new System.EventHandler(this.readFromFileToolStripMenuItem_Click);
+            // 
+            // predictToolStripMenuItem
+            // 
+            this.predictToolStripMenuItem.Name = "predictToolStripMenuItem";
+            this.predictToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.predictToolStripMenuItem.Text = "Predict";
+            this.predictToolStripMenuItem.Click += new System.EventHandler(this.predictToolStripMenuItem_Click);
             // 
             // txtbox_input
             // 
@@ -64,12 +101,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtbox_input.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbox_input.Location = new System.Drawing.Point(13, 28);
+            this.txtbox_input.Location = new System.Drawing.Point(12, 28);
             this.txtbox_input.MinimumSize = new System.Drawing.Size(4, 40);
             this.txtbox_input.Multiline = true;
             this.txtbox_input.Name = "txtbox_input";
             this.txtbox_input.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtbox_input.Size = new System.Drawing.Size(288, 59);
+            this.txtbox_input.Size = new System.Drawing.Size(200, 68);
             this.txtbox_input.TabIndex = 1;
             this.txtbox_input.WordWrap = false;
             // 
@@ -77,9 +114,9 @@
             // 
             this.btn_decrypt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_decrypt.Location = new System.Drawing.Point(13, 174);
+            this.btn_decrypt.Location = new System.Drawing.Point(12, 265);
             this.btn_decrypt.Name = "btn_decrypt";
-            this.btn_decrypt.Size = new System.Drawing.Size(288, 23);
+            this.btn_decrypt.Size = new System.Drawing.Size(200, 23);
             this.btn_decrypt.TabIndex = 2;
             this.btn_decrypt.Text = "Decrypt";
             this.btn_decrypt.UseVisualStyleBackColor = true;
@@ -90,11 +127,11 @@
             this.txtbox_output.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtbox_output.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbox_output.Location = new System.Drawing.Point(12, 203);
+            this.txtbox_output.Location = new System.Drawing.Point(12, 294);
             this.txtbox_output.Multiline = true;
             this.txtbox_output.Name = "txtbox_output";
             this.txtbox_output.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtbox_output.Size = new System.Drawing.Size(289, 152);
+            this.txtbox_output.Size = new System.Drawing.Size(200, 70);
             this.txtbox_output.TabIndex = 3;
             // 
             // dialog_openfile
@@ -106,9 +143,9 @@
             // 
             this.btn_savetofile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_savetofile.Location = new System.Drawing.Point(12, 361);
+            this.btn_savetofile.Location = new System.Drawing.Point(12, 370);
             this.btn_savetofile.Name = "btn_savetofile";
-            this.btn_savetofile.Size = new System.Drawing.Size(289, 23);
+            this.btn_savetofile.Size = new System.Drawing.Size(200, 29);
             this.btn_savetofile.TabIndex = 4;
             this.btn_savetofile.Text = "Save To File";
             this.btn_savetofile.UseVisualStyleBackColor = true;
@@ -119,49 +156,28 @@
             this.dialog_savefile.FileName = "caesarShiftPlainText.txt";
             this.dialog_savefile.Filter = "Text File|*.txt";
             // 
-            // layout_groupbox
+            // caesar_layout_groupbox
             // 
-            this.layout_groupbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.caesar_layout_groupbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.layout_groupbox.Controls.Add(this.inp_shiftvalue);
-            this.layout_groupbox.Controls.Add(this.radiobutton_generatesinglevalue);
-            this.layout_groupbox.Controls.Add(this.radiobutton_generateall);
-            this.layout_groupbox.Location = new System.Drawing.Point(13, 93);
-            this.layout_groupbox.Name = "layout_groupbox";
-            this.layout_groupbox.Size = new System.Drawing.Size(287, 75);
-            this.layout_groupbox.TabIndex = 5;
-            this.layout_groupbox.TabStop = false;
-            this.layout_groupbox.Text = "Options";
-            // 
-            // radiobutton_generateall
-            // 
-            this.radiobutton_generateall.AutoSize = true;
-            this.radiobutton_generateall.Checked = true;
-            this.radiobutton_generateall.Location = new System.Drawing.Point(7, 20);
-            this.radiobutton_generateall.Name = "radiobutton_generateall";
-            this.radiobutton_generateall.Size = new System.Drawing.Size(165, 17);
-            this.radiobutton_generateall.TabIndex = 0;
-            this.radiobutton_generateall.TabStop = true;
-            this.radiobutton_generateall.Text = "Generate All Possible Outputs";
-            this.radiobutton_generateall.UseVisualStyleBackColor = true;
-            // 
-            // radiobutton_generatesinglevalue
-            // 
-            this.radiobutton_generatesinglevalue.AutoSize = true;
-            this.radiobutton_generatesinglevalue.Location = new System.Drawing.Point(7, 44);
-            this.radiobutton_generatesinglevalue.Name = "radiobutton_generatesinglevalue";
-            this.radiobutton_generatesinglevalue.Size = new System.Drawing.Size(139, 17);
-            this.radiobutton_generatesinglevalue.TabIndex = 1;
-            this.radiobutton_generatesinglevalue.Text = "Decypher with set value";
-            this.radiobutton_generatesinglevalue.UseVisualStyleBackColor = true;
-            this.radiobutton_generatesinglevalue.CheckedChanged += new System.EventHandler(this.radiobutton_generatesinglevalue_CheckedChanged);
+            this.caesar_layout_groupbox.Controls.Add(this.caesar_radiobutton_predict);
+            this.caesar_layout_groupbox.Controls.Add(this.inp_shiftvalue);
+            this.caesar_layout_groupbox.Controls.Add(this.caesar_radiobutton_generatesinglevalue);
+            this.caesar_layout_groupbox.Controls.Add(this.caesar_radiobutton_generateall);
+            this.caesar_layout_groupbox.Location = new System.Drawing.Point(6, 6);
+            this.caesar_layout_groupbox.Name = "caesar_layout_groupbox";
+            this.caesar_layout_groupbox.Size = new System.Drawing.Size(404, 88);
+            this.caesar_layout_groupbox.TabIndex = 5;
+            this.caesar_layout_groupbox.TabStop = false;
+            this.caesar_layout_groupbox.Text = "Options";
             // 
             // inp_shiftvalue
             // 
             this.inp_shiftvalue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.inp_shiftvalue.Enabled = false;
-            this.inp_shiftvalue.Location = new System.Drawing.Point(153, 44);
+            this.inp_shiftvalue.Location = new System.Drawing.Point(127, 44);
             this.inp_shiftvalue.Maximum = new decimal(new int[] {
             25,
             0,
@@ -174,51 +190,165 @@
             -2147483648});
             this.inp_shiftvalue.MinimumSize = new System.Drawing.Size(35, 0);
             this.inp_shiftvalue.Name = "inp_shiftvalue";
-            this.inp_shiftvalue.Size = new System.Drawing.Size(128, 20);
+            this.inp_shiftvalue.Size = new System.Drawing.Size(271, 20);
             this.inp_shiftvalue.TabIndex = 2;
             // 
-            // btn_readfromfile
+            // caesar_radiobutton_generatesinglevalue
             // 
-            this.btn_readfromfile.Name = "btn_readfromfile";
-            this.btn_readfromfile.Size = new System.Drawing.Size(152, 22);
-            this.btn_readfromfile.Text = "Read From File";
-            this.btn_readfromfile.Click += new System.EventHandler(this.readFromFileToolStripMenuItem_Click);
+            this.caesar_radiobutton_generatesinglevalue.AutoSize = true;
+            this.caesar_radiobutton_generatesinglevalue.Location = new System.Drawing.Point(7, 44);
+            this.caesar_radiobutton_generatesinglevalue.Name = "caesar_radiobutton_generatesinglevalue";
+            this.caesar_radiobutton_generatesinglevalue.Size = new System.Drawing.Size(114, 17);
+            this.caesar_radiobutton_generatesinglevalue.TabIndex = 1;
+            this.caesar_radiobutton_generatesinglevalue.Text = "Shift with set value";
+            this.caesar_radiobutton_generatesinglevalue.UseVisualStyleBackColor = true;
+            this.caesar_radiobutton_generatesinglevalue.CheckedChanged += new System.EventHandler(this.radiobutton_generatesinglevalue_CheckedChanged);
             // 
-            // inputToolStripMenuItem
+            // caesar_radiobutton_generateall
             // 
-            this.inputToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btn_readfromfile});
-            this.inputToolStripMenuItem.Name = "inputToolStripMenuItem";
-            this.inputToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.inputToolStripMenuItem.Text = "Input";
+            this.caesar_radiobutton_generateall.AutoSize = true;
+            this.caesar_radiobutton_generateall.Checked = true;
+            this.caesar_radiobutton_generateall.Location = new System.Drawing.Point(7, 20);
+            this.caesar_radiobutton_generateall.Name = "caesar_radiobutton_generateall";
+            this.caesar_radiobutton_generateall.Size = new System.Drawing.Size(165, 17);
+            this.caesar_radiobutton_generateall.TabIndex = 0;
+            this.caesar_radiobutton_generateall.TabStop = true;
+            this.caesar_radiobutton_generateall.Text = "Generate All Possible Outputs";
+            this.caesar_radiobutton_generateall.UseVisualStyleBackColor = true;
             // 
-            // predictToolStripMenuItem
+            // tabSystem
             // 
-            this.predictToolStripMenuItem.Name = "predictToolStripMenuItem";
-            this.predictToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.predictToolStripMenuItem.Text = "Predict";
-            this.predictToolStripMenuItem.Click += new System.EventHandler(this.predictToolStripMenuItem_Click);
+            this.tabSystem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabSystem.Controls.Add(this.tab_caesar);
+            this.tabSystem.Controls.Add(this.tab_affine);
+            this.tabSystem.Location = new System.Drawing.Point(12, 104);
+            this.tabSystem.Name = "tabSystem";
+            this.tabSystem.SelectedIndex = 0;
+            this.tabSystem.Size = new System.Drawing.Size(200, 126);
+            this.tabSystem.TabIndex = 6;
+            this.tabSystem.SelectedIndexChanged += new System.EventHandler(this.tabSystem_SelectedIndexChanged);
+            // 
+            // tab_caesar
+            // 
+            this.tab_caesar.Controls.Add(this.caesar_layout_groupbox);
+            this.tab_caesar.Location = new System.Drawing.Point(4, 22);
+            this.tab_caesar.Name = "tab_caesar";
+            this.tab_caesar.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_caesar.Size = new System.Drawing.Size(416, 100);
+            this.tab_caesar.TabIndex = 0;
+            this.tab_caesar.Text = "Caesar";
+            this.tab_caesar.UseVisualStyleBackColor = true;
+            // 
+            // tab_affine
+            // 
+            this.tab_affine.Controls.Add(this.affine_inp_c);
+            this.tab_affine.Controls.Add(this.affine_label_x);
+            this.tab_affine.Controls.Add(this.affine_inp_m);
+            this.tab_affine.Controls.Add(this.affine_lbl_shiftby);
+            this.tab_affine.Controls.Add(this.affine_lbl_formula);
+            this.tab_affine.Location = new System.Drawing.Point(4, 22);
+            this.tab_affine.Name = "tab_affine";
+            this.tab_affine.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_affine.Size = new System.Drawing.Size(192, 100);
+            this.tab_affine.TabIndex = 1;
+            this.tab_affine.Text = "Affine";
+            this.tab_affine.UseVisualStyleBackColor = true;
+            // 
+            // caesar_radiobutton_predict
+            // 
+            this.caesar_radiobutton_predict.AutoSize = true;
+            this.caesar_radiobutton_predict.Location = new System.Drawing.Point(7, 68);
+            this.caesar_radiobutton_predict.Name = "caesar_radiobutton_predict";
+            this.caesar_radiobutton_predict.Size = new System.Drawing.Size(58, 17);
+            this.caesar_radiobutton_predict.TabIndex = 3;
+            this.caesar_radiobutton_predict.TabStop = true;
+            this.caesar_radiobutton_predict.Text = "Predict";
+            this.caesar_radiobutton_predict.UseVisualStyleBackColor = true;
+            // 
+            // btn_encrypt
+            // 
+            this.btn_encrypt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_encrypt.Enabled = false;
+            this.btn_encrypt.Location = new System.Drawing.Point(12, 235);
+            this.btn_encrypt.Name = "btn_encrypt";
+            this.btn_encrypt.Size = new System.Drawing.Size(200, 24);
+            this.btn_encrypt.TabIndex = 7;
+            this.btn_encrypt.Text = "Encrypt";
+            this.btn_encrypt.UseVisualStyleBackColor = true;
+            this.btn_encrypt.Click += new System.EventHandler(this.btn_encrypt_Click);
+            // 
+            // affine_lbl_formula
+            // 
+            this.affine_lbl_formula.AutoSize = true;
+            this.affine_lbl_formula.Location = new System.Drawing.Point(6, 3);
+            this.affine_lbl_formula.Name = "affine_lbl_formula";
+            this.affine_lbl_formula.Size = new System.Drawing.Size(47, 13);
+            this.affine_lbl_formula.TabIndex = 0;
+            this.affine_lbl_formula.Text = "Formula:";
+            // 
+            // affine_lbl_shiftby
+            // 
+            this.affine_lbl_shiftby.AutoSize = true;
+            this.affine_lbl_shiftby.Location = new System.Drawing.Point(6, 16);
+            this.affine_lbl_shiftby.Name = "affine_lbl_shiftby";
+            this.affine_lbl_shiftby.Size = new System.Drawing.Size(49, 13);
+            this.affine_lbl_shiftby.TabIndex = 1;
+            this.affine_lbl_shiftby.Text = "Shift By: ";
+            // 
+            // affine_inp_m
+            // 
+            this.affine_inp_m.Location = new System.Drawing.Point(59, 14);
+            this.affine_inp_m.Name = "affine_inp_m";
+            this.affine_inp_m.Size = new System.Drawing.Size(45, 20);
+            this.affine_inp_m.TabIndex = 2;
+            // 
+            // affine_label_x
+            // 
+            this.affine_label_x.AutoSize = true;
+            this.affine_label_x.Location = new System.Drawing.Point(110, 16);
+            this.affine_label_x.Name = "affine_label_x";
+            this.affine_label_x.Size = new System.Drawing.Size(24, 13);
+            this.affine_label_x.TabIndex = 3;
+            this.affine_label_x.Text = "x + ";
+            // 
+            // affine_inp_c
+            // 
+            this.affine_inp_c.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.affine_inp_c.Location = new System.Drawing.Point(130, 14);
+            this.affine_inp_c.Name = "affine_inp_c";
+            this.affine_inp_c.Size = new System.Drawing.Size(56, 20);
+            this.affine_inp_c.TabIndex = 4;
             // 
             // form_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(313, 396);
-            this.Controls.Add(this.layout_groupbox);
+            this.ClientSize = new System.Drawing.Size(224, 411);
+            this.Controls.Add(this.btn_encrypt);
+            this.Controls.Add(this.tabSystem);
             this.Controls.Add(this.btn_savetofile);
             this.Controls.Add(this.txtbox_output);
             this.Controls.Add(this.btn_decrypt);
             this.Controls.Add(this.txtbox_input);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(240, 380);
+            this.MinimumSize = new System.Drawing.Size(240, 450);
             this.Name = "form_main";
             this.Text = "Cipher";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.layout_groupbox.ResumeLayout(false);
-            this.layout_groupbox.PerformLayout();
+            this.caesar_layout_groupbox.ResumeLayout(false);
+            this.caesar_layout_groupbox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inp_shiftvalue)).EndInit();
+            this.tabSystem.ResumeLayout(false);
+            this.tab_caesar.ResumeLayout(false);
+            this.tab_affine.ResumeLayout(false);
+            this.tab_affine.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.affine_inp_m)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.affine_inp_c)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,13 +363,23 @@
         private System.Windows.Forms.OpenFileDialog dialog_openfile;
         private System.Windows.Forms.Button btn_savetofile;
         private System.Windows.Forms.SaveFileDialog dialog_savefile;
-        private System.Windows.Forms.GroupBox layout_groupbox;
+        private System.Windows.Forms.GroupBox caesar_layout_groupbox;
         private System.Windows.Forms.NumericUpDown inp_shiftvalue;
-        private System.Windows.Forms.RadioButton radiobutton_generatesinglevalue;
-        private System.Windows.Forms.RadioButton radiobutton_generateall;
+        private System.Windows.Forms.RadioButton caesar_radiobutton_generatesinglevalue;
+        private System.Windows.Forms.RadioButton caesar_radiobutton_generateall;
         private System.Windows.Forms.ToolStripMenuItem inputToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem btn_readfromfile;
         private System.Windows.Forms.ToolStripMenuItem predictToolStripMenuItem;
+        private System.Windows.Forms.TabControl tabSystem;
+        private System.Windows.Forms.TabPage tab_caesar;
+        private System.Windows.Forms.TabPage tab_affine;
+        private System.Windows.Forms.RadioButton caesar_radiobutton_predict;
+        private System.Windows.Forms.Button btn_encrypt;
+        private System.Windows.Forms.NumericUpDown affine_inp_c;
+        private System.Windows.Forms.Label affine_label_x;
+        private System.Windows.Forms.NumericUpDown affine_inp_m;
+        private System.Windows.Forms.Label affine_lbl_shiftby;
+        private System.Windows.Forms.Label affine_lbl_formula;
     }
 }
 

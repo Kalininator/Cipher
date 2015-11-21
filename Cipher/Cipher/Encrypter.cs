@@ -12,6 +12,34 @@ namespace Cipher
             }
             return temp;
         }
+        public static String AffineEncrypt(String str, int m, int c) //shift str using y = mx + c
+        {
+            String temp = "";
+
+            int charnum;
+
+            for(int i = 0; i < str.Length; i ++)
+            {
+                if(isLetter(str.ToUpper()[i]))
+                {
+                    charnum = CharToInt(str[i]);
+                    charnum = (charnum * m) + c;
+                    charnum = charnum % 26;
+                    temp += IntToChar(charnum);
+                }
+                else
+                {
+                    temp += str[i];
+                }
+            }
+
+            return temp;
+        }
+        public static String AffineDecrypt(String str, int m, int c)
+        {
+            return "";
+        }
+
         public static char ShiftChar(char x, int shift)
         {
             x = x.ToString().ToUpper()[0];
@@ -21,7 +49,7 @@ namespace Cipher
                 shiftabs %= 26;
                 shift = 26 - shiftabs;
             }
-            if ((int)x > 64 && (int)x < 91)
+            if (isLetter(x))
             {
                 return IntToChar((CharToInt(x) + shift) % 26);
             }
@@ -40,5 +68,17 @@ namespace Cipher
             val = val.ToString().ToUpper()[0];
             return (int)val -65;
         }
+        public static bool isLetter(Char c)
+        {
+            if((int)c < 91 && (int)c > 64)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        
     }
 }

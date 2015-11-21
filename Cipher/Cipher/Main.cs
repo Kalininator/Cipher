@@ -27,8 +27,53 @@ namespace Cipher
 
         private void btn_decrypt_Click(object sender, EventArgs e)
         {
+            switch(tabSystem.SelectedIndex)
+            {
+                case 0:
+                    //caesar cipher
+                    decrypt_caesar();
+                    break;
+                case 1:
+                    //affine cipher
+                    decrypt_affine();
+                    break;
+            }
+        }
+        private void btn_encrypt_Click(object sender, EventArgs e)
+        {
+            switch (tabSystem.SelectedIndex)
+            {
+                case 0:
+                    //caesar cipher
+                    encrypt_caesar();
+                    break;
+                case 1:
+                    //affine cipher
+                    encrypt_affine();
+                    break;
+            }
+        }
 
-            if (radiobutton_generateall.Checked)
+
+        //AFFINE CIPHER
+        private void encrypt_affine()
+        {
+            txtbox_output.Text = Encrypter.AffineEncrypt(txtbox_input.Text,(int)affine_inp_m.Value,(int)affine_inp_c.Value);
+        }
+        private void decrypt_affine()
+        {
+
+        }
+
+
+        //CAESAR CIPHER
+        private void encrypt_caesar()
+        {
+            txtbox_output.Text = Encrypter.ShiftString(txtbox_input.Text.ToUpper(), -(int)inp_shiftvalue.Value);
+        }
+        private void decrypt_caesar()
+        {
+            if (caesar_radiobutton_generateall.Checked)
             {
                 txtbox_output.Text = "";
                 for(int i = 1; i < 26; i ++)
@@ -37,11 +82,13 @@ namespace Cipher
                     txtbox_output.Text += Encrypter.ShiftString(txtbox_input.Text.ToUpper(), i) + System.Environment.NewLine + System.Environment.NewLine;
                 }
             }
-            else if (radiobutton_generatesinglevalue.Checked)
+            else if (caesar_radiobutton_generatesinglevalue.Checked)
             {
                 txtbox_output.Text = Encrypter.ShiftString(txtbox_input.Text.ToUpper(), (int)inp_shiftvalue.Value);
+            }else if(caesar_radiobutton_predict.Checked)
+            {
+                txtbox_output.Text = Encrypter.ShiftString(txtbox_input.Text, FrequencyAnalysis.PredictShiftValue(txtbox_input.Text));
             }
-            
         }
 
         private void btn_savetofile_Click(object sender, EventArgs e)
@@ -58,19 +105,40 @@ namespace Cipher
 
         private void radiobutton_generatesinglevalue_CheckedChanged(object sender, EventArgs e)
         {
-            if (radiobutton_generatesinglevalue.Checked)
+            if (caesar_radiobutton_generatesinglevalue.Checked)
             {
                 inp_shiftvalue.Enabled = true;
+                btn_encrypt.Enabled = true;
             }
             else
             {
                 inp_shiftvalue.Enabled = false;
+                btn_encrypt.Enabled = false;
             }
         }
 
         private void predictToolStripMenuItem_Click(object sender, EventArgs e)
         {
             txtbox_output.Text = Encrypter.ShiftString(txtbox_input.Text, FrequencyAnalysis.PredictShiftValue(txtbox_input.Text));
+        }
+
+        private void tabSystem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //settings to set when changing tabs
+            switch(tabSystem.SelectedIndex)
+            {
+                case 0:
+                    //caesar
+                    btn_encrypt.Enabled = false;
+                    caesar_radiobutton_generateall.Checked = true;
+                    btn_decrypt.Enabled = true;
+                    break;
+                case 1:
+                    //affine
+                    btn_encrypt.Enabled = true;
+                    btn_decrypt.Enabled = false;
+                    break;
+            }
         }
     }
 }

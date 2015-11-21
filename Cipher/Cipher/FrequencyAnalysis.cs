@@ -28,7 +28,7 @@ namespace Cipher
 
             foreach (char x in text)
             {
-                if ((int)x < 91 && (int)x > 64)
+                if (Encrypter.isLetter(x))
                 {
                     count[Encrypter.CharToInt(x)]++;
                 }
