@@ -235,7 +235,7 @@
             this.btn_encrypt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_encrypt.Enabled = false;
-            this.btn_encrypt.Location = new System.Drawing.Point(16, 301);
+            this.btn_encrypt.Location = new System.Drawing.Point(12, 301);
             this.btn_encrypt.Name = "btn_encrypt";
             this.btn_encrypt.Size = new System.Drawing.Size(239, 24);
             this.btn_encrypt.TabIndex = 7;
