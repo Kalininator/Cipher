@@ -31,7 +31,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.inputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_readfromfile = new System.Windows.Forms.ToolStripMenuItem();
-            this.predictToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtbox_input = new System.Windows.Forms.TextBox();
             this.btn_decrypt = new System.Windows.Forms.Button();
             this.txtbox_output = new System.Windows.Forms.TextBox();
@@ -65,8 +64,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.inputToolStripMenuItem,
-            this.predictToolStripMenuItem});
+            this.inputToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(224, 24);
@@ -87,13 +85,6 @@
             this.btn_readfromfile.Size = new System.Drawing.Size(152, 22);
             this.btn_readfromfile.Text = "Read From File";
             this.btn_readfromfile.Click += new System.EventHandler(this.readFromFileToolStripMenuItem_Click);
-            // 
-            // predictToolStripMenuItem
-            // 
-            this.predictToolStripMenuItem.Name = "predictToolStripMenuItem";
-            this.predictToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.predictToolStripMenuItem.Text = "Predict";
-            this.predictToolStripMenuItem.Click += new System.EventHandler(this.predictToolStripMenuItem_Click);
             // 
             // txtbox_input
             // 
@@ -369,7 +360,6 @@
         private System.Windows.Forms.RadioButton caesar_radiobutton_generateall;
         private System.Windows.Forms.ToolStripMenuItem inputToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem btn_readfromfile;
-        private System.Windows.Forms.ToolStripMenuItem predictToolStripMenuItem;
         private System.Windows.Forms.TabControl tabSystem;
         private System.Windows.Forms.TabPage tab_caesar;
         private System.Windows.Forms.TabPage tab_affine;

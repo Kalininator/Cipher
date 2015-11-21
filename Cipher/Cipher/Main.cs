@@ -117,11 +117,6 @@ namespace Cipher
             }
         }
 
-        private void predictToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            txtbox_output.Text = Encrypter.ShiftString(txtbox_input.Text, FrequencyAnalysis.PredictShiftValue(txtbox_input.Text));
-        }
-
         private void tabSystem_SelectedIndexChanged(object sender, EventArgs e)
         {
             //settings to set when changing tabs
