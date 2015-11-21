@@ -67,7 +67,7 @@
             this.inputToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(224, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(263, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -97,7 +97,7 @@
             this.txtbox_input.Multiline = true;
             this.txtbox_input.Name = "txtbox_input";
             this.txtbox_input.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtbox_input.Size = new System.Drawing.Size(200, 68);
+            this.txtbox_input.Size = new System.Drawing.Size(239, 135);
             this.txtbox_input.TabIndex = 1;
             this.txtbox_input.WordWrap = false;
             // 
@@ -105,9 +105,9 @@
             // 
             this.btn_decrypt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_decrypt.Location = new System.Drawing.Point(12, 265);
+            this.btn_decrypt.Location = new System.Drawing.Point(12, 331);
             this.btn_decrypt.Name = "btn_decrypt";
-            this.btn_decrypt.Size = new System.Drawing.Size(200, 23);
+            this.btn_decrypt.Size = new System.Drawing.Size(239, 23);
             this.btn_decrypt.TabIndex = 2;
             this.btn_decrypt.Text = "Decrypt";
             this.btn_decrypt.UseVisualStyleBackColor = true;
@@ -118,11 +118,11 @@
             this.txtbox_output.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtbox_output.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbox_output.Location = new System.Drawing.Point(12, 294);
+            this.txtbox_output.Location = new System.Drawing.Point(12, 360);
             this.txtbox_output.Multiline = true;
             this.txtbox_output.Name = "txtbox_output";
             this.txtbox_output.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtbox_output.Size = new System.Drawing.Size(200, 70);
+            this.txtbox_output.Size = new System.Drawing.Size(239, 128);
             this.txtbox_output.TabIndex = 3;
             // 
             // dialog_openfile
@@ -134,9 +134,9 @@
             // 
             this.btn_savetofile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_savetofile.Location = new System.Drawing.Point(12, 370);
+            this.btn_savetofile.Location = new System.Drawing.Point(12, 494);
             this.btn_savetofile.Name = "btn_savetofile";
-            this.btn_savetofile.Size = new System.Drawing.Size(200, 29);
+            this.btn_savetofile.Size = new System.Drawing.Size(239, 29);
             this.btn_savetofile.TabIndex = 4;
             this.btn_savetofile.Text = "Save To File";
             this.btn_savetofile.UseVisualStyleBackColor = true;
@@ -158,7 +158,7 @@
             this.caesar_layout_groupbox.Controls.Add(this.caesar_radiobutton_generateall);
             this.caesar_layout_groupbox.Location = new System.Drawing.Point(6, 6);
             this.caesar_layout_groupbox.Name = "caesar_layout_groupbox";
-            this.caesar_layout_groupbox.Size = new System.Drawing.Size(404, 88);
+            this.caesar_layout_groupbox.Size = new System.Drawing.Size(219, 88);
             this.caesar_layout_groupbox.TabIndex = 5;
             this.caesar_layout_groupbox.TabStop = false;
             this.caesar_layout_groupbox.Text = "Options";
@@ -181,7 +181,7 @@
             -2147483648});
             this.inp_shiftvalue.MinimumSize = new System.Drawing.Size(35, 0);
             this.inp_shiftvalue.Name = "inp_shiftvalue";
-            this.inp_shiftvalue.Size = new System.Drawing.Size(271, 20);
+            this.inp_shiftvalue.Size = new System.Drawing.Size(86, 20);
             this.inp_shiftvalue.TabIndex = 2;
             // 
             // caesar_radiobutton_generatesinglevalue
@@ -213,10 +213,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabSystem.Controls.Add(this.tab_caesar);
             this.tabSystem.Controls.Add(this.tab_affine);
-            this.tabSystem.Location = new System.Drawing.Point(12, 104);
+            this.tabSystem.Location = new System.Drawing.Point(12, 169);
             this.tabSystem.Name = "tabSystem";
             this.tabSystem.SelectedIndex = 0;
-            this.tabSystem.Size = new System.Drawing.Size(200, 126);
+            this.tabSystem.Size = new System.Drawing.Size(239, 126);
             this.tabSystem.TabIndex = 6;
             this.tabSystem.SelectedIndexChanged += new System.EventHandler(this.tabSystem_SelectedIndexChanged);
             // 
@@ -226,7 +226,7 @@
             this.tab_caesar.Location = new System.Drawing.Point(4, 22);
             this.tab_caesar.Name = "tab_caesar";
             this.tab_caesar.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_caesar.Size = new System.Drawing.Size(416, 100);
+            this.tab_caesar.Size = new System.Drawing.Size(231, 100);
             this.tab_caesar.TabIndex = 0;
             this.tab_caesar.Text = "Caesar";
             this.tab_caesar.UseVisualStyleBackColor = true;
@@ -241,7 +241,7 @@
             this.tab_affine.Location = new System.Drawing.Point(4, 22);
             this.tab_affine.Name = "tab_affine";
             this.tab_affine.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_affine.Size = new System.Drawing.Size(192, 100);
+            this.tab_affine.Size = new System.Drawing.Size(231, 100);
             this.tab_affine.TabIndex = 1;
             this.tab_affine.Text = "Affine";
             this.tab_affine.UseVisualStyleBackColor = true;
@@ -262,9 +262,9 @@
             this.btn_encrypt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_encrypt.Enabled = false;
-            this.btn_encrypt.Location = new System.Drawing.Point(12, 235);
+            this.btn_encrypt.Location = new System.Drawing.Point(16, 301);
             this.btn_encrypt.Name = "btn_encrypt";
-            this.btn_encrypt.Size = new System.Drawing.Size(200, 24);
+            this.btn_encrypt.Size = new System.Drawing.Size(239, 24);
             this.btn_encrypt.TabIndex = 7;
             this.btn_encrypt.Text = "Encrypt";
             this.btn_encrypt.UseVisualStyleBackColor = true;
@@ -310,14 +310,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.affine_inp_c.Location = new System.Drawing.Point(130, 14);
             this.affine_inp_c.Name = "affine_inp_c";
-            this.affine_inp_c.Size = new System.Drawing.Size(56, 20);
+            this.affine_inp_c.Size = new System.Drawing.Size(95, 20);
             this.affine_inp_c.TabIndex = 4;
             // 
             // form_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(224, 411);
+            this.ClientSize = new System.Drawing.Size(263, 535);
             this.Controls.Add(this.btn_encrypt);
             this.Controls.Add(this.tabSystem);
             this.Controls.Add(this.btn_savetofile);
