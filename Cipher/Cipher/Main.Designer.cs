@@ -31,9 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.inputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_readfromfile = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtbox_input = new System.Windows.Forms.TextBox();
             this.btn_decrypt = new System.Windows.Forms.Button();
-            this.txtbox_output = new System.Windows.Forms.TextBox();
             this.dialog_openfile = new System.Windows.Forms.OpenFileDialog();
             this.btn_savetofile = new System.Windows.Forms.Button();
             this.dialog_savefile = new System.Windows.Forms.SaveFileDialog();
@@ -51,6 +49,8 @@
             this.affine_inp_m = new System.Windows.Forms.NumericUpDown();
             this.affine_label_x = new System.Windows.Forms.Label();
             this.affine_inp_c = new System.Windows.Forms.NumericUpDown();
+            this.txtbox_input = new System.Windows.Forms.RichTextBox();
+            this.txtbox_output = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.caesar_layout_groupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inp_shiftvalue)).BeginInit();
@@ -86,21 +86,6 @@
             this.btn_readfromfile.Text = "Read From File";
             this.btn_readfromfile.Click += new System.EventHandler(this.readFromFileToolStripMenuItem_Click);
             // 
-            // txtbox_input
-            // 
-            this.txtbox_input.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtbox_input.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbox_input.Location = new System.Drawing.Point(12, 28);
-            this.txtbox_input.MinimumSize = new System.Drawing.Size(4, 40);
-            this.txtbox_input.Multiline = true;
-            this.txtbox_input.Name = "txtbox_input";
-            this.txtbox_input.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtbox_input.Size = new System.Drawing.Size(239, 135);
-            this.txtbox_input.TabIndex = 1;
-            this.txtbox_input.WordWrap = false;
-            // 
             // btn_decrypt
             // 
             this.btn_decrypt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -112,18 +97,6 @@
             this.btn_decrypt.Text = "Decrypt";
             this.btn_decrypt.UseVisualStyleBackColor = true;
             this.btn_decrypt.Click += new System.EventHandler(this.btn_decrypt_Click);
-            // 
-            // txtbox_output
-            // 
-            this.txtbox_output.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtbox_output.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbox_output.Location = new System.Drawing.Point(12, 360);
-            this.txtbox_output.Multiline = true;
-            this.txtbox_output.Name = "txtbox_output";
-            this.txtbox_output.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtbox_output.Size = new System.Drawing.Size(239, 128);
-            this.txtbox_output.TabIndex = 3;
             // 
             // dialog_openfile
             // 
@@ -313,17 +286,38 @@
             this.affine_inp_c.Size = new System.Drawing.Size(95, 20);
             this.affine_inp_c.TabIndex = 4;
             // 
+            // txtbox_input
+            // 
+            this.txtbox_input.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtbox_input.Location = new System.Drawing.Point(13, 28);
+            this.txtbox_input.Name = "txtbox_input";
+            this.txtbox_input.Size = new System.Drawing.Size(238, 135);
+            this.txtbox_input.TabIndex = 8;
+            this.txtbox_input.Text = "";
+            // 
+            // txtbox_output
+            // 
+            this.txtbox_output.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtbox_output.Location = new System.Drawing.Point(12, 360);
+            this.txtbox_output.Name = "txtbox_output";
+            this.txtbox_output.Size = new System.Drawing.Size(239, 128);
+            this.txtbox_output.TabIndex = 9;
+            this.txtbox_output.Text = "";
+            // 
             // form_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(263, 535);
+            this.Controls.Add(this.txtbox_output);
+            this.Controls.Add(this.txtbox_input);
             this.Controls.Add(this.btn_encrypt);
             this.Controls.Add(this.tabSystem);
             this.Controls.Add(this.btn_savetofile);
-            this.Controls.Add(this.txtbox_output);
             this.Controls.Add(this.btn_decrypt);
-            this.Controls.Add(this.txtbox_input);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(240, 450);
@@ -348,9 +342,7 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.TextBox txtbox_input;
         private System.Windows.Forms.Button btn_decrypt;
-        private System.Windows.Forms.TextBox txtbox_output;
         private System.Windows.Forms.OpenFileDialog dialog_openfile;
         private System.Windows.Forms.Button btn_savetofile;
         private System.Windows.Forms.SaveFileDialog dialog_savefile;
@@ -370,6 +362,8 @@
         private System.Windows.Forms.NumericUpDown affine_inp_m;
         private System.Windows.Forms.Label affine_lbl_shiftby;
         private System.Windows.Forms.Label affine_lbl_formula;
+        private System.Windows.Forms.RichTextBox txtbox_input;
+        private System.Windows.Forms.RichTextBox txtbox_output;
     }
 }
 
