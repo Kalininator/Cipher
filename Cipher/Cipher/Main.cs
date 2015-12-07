@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Cipher
@@ -58,11 +59,11 @@ namespace Cipher
         //AFFINE CIPHER
         private void encrypt_affine()
         {
-            txtbox_output.Text = Encrypter.AffineEncrypt(txtbox_input.Text,(int)affine_inp_m.Value,(int)affine_inp_c.Value);
+            txtbox_output.Text = Encrypter.AffineEncrypt(txtbox_input.Text,int.Parse(affine_inp_m.SelectedItem.ToString()),(int)affine_inp_c.Value);
         }
         private void decrypt_affine()
         {
-
+            txtbox_output.Text = Encrypter.AffineDecrypt(txtbox_input.Text,int.Parse(affine_inp_m.SelectedItem.ToString()),(int)affine_inp_c.Value);
         }
 
 
@@ -85,21 +86,20 @@ namespace Cipher
             else if (caesar_radiobutton_generatesinglevalue.Checked)
             {
                 txtbox_output.Text = Encrypter.ShiftString(txtbox_input.Text.ToUpper(), (int)inp_shiftvalue.Value);
-            }else if(caesar_radiobutton_predict.Checked)
-            {
-                txtbox_output.Text = Encrypter.ShiftString(txtbox_input.Text, FrequencyAnalysis.PredictShiftValue(txtbox_input.Text));
             }
-        }
+            else if(caesar_radiobutton_predict.Checked)
+            {
 
-        private void btn_savetofile_Click(object sender, EventArgs e)
-        {
-            dialog_savefile.ShowDialog();
-            try {
-                System.IO.File.WriteAllText(dialog_savefile.FileName, txtbox_output.Text);
-            }
-            catch(Exception err)
-            {
-                MessageBox.Show(err.Message);
+                
+                String[] options = new String[26];
+                
+                for(int i = 0; i < options.Length; i ++)
+                {
+                    options[i] = Encrypter.ShiftString(txtbox_input.Text,i);
+                }
+
+                txtbox_output.Text = options[FrequencyAnalysis.Predict(options)];
+
             }
         }
 
@@ -131,8 +131,52 @@ namespace Cipher
                 case 1:
                     //affine
                     btn_encrypt.Enabled = true;
-                    btn_decrypt.Enabled = false;
+                    btn_decrypt.Enabled = true;
                     break;
+            }
+        }
+
+        private void saveToTextFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialog_savefile.Filter = "Text File|*.txt";
+            dialog_savefile.ShowDialog();
+            try
+            {
+                System.IO.File.WriteAllText(dialog_savefile.FileName, txtbox_output.Text);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+
+        private void saveToWebPageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String output = txtbox_output.Text;
+            output = Regex.Replace(output, @"\r\n?|\n", "<br />");
+            dialog_savefile.Filter = "Web Page|*.html";
+            dialog_savefile.ShowDialog();
+            try
+            {
+                System.IO.File.WriteAllText(dialog_savefile.FileName, output);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+
+        private void affine_radiopredict_CheckedChanged(object sender, EventArgs e)
+        {
+            if(affine_radiopredict.Checked)
+            {
+                affine_formulabox.Enabled = false;
+                btn_encrypt.Enabled = false;
+            }
+            else
+            {
+                affine_formulabox.Enabled = true;
+                btn_encrypt.Enabled = true;
             }
         }
     }

@@ -3,6 +3,9 @@ namespace Cipher
 {
     public class Encrypter
     {
+
+        public static int[] affineCoprimeOptions = { 1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25 };
+
         public static String ShiftString(String str, int shift)
         {
             String temp = "";
@@ -35,9 +38,58 @@ namespace Cipher
 
             return temp;
         }
+        
+        public static int ModularMultiplicativeInverse(int x)
+        {
+            int count = 0;
+            double a;
+            while(true)
+            {
+                //a = inverse of x
+                a = (1 + (count * 26)) / (double)x;
+                if(a % 1 == 0)
+                {
+                    //a is an integer, so a is correct
+                    return (int)a;
+                }
+                else
+                {
+                    count++;
+                }
+            }
+        }
+
         public static String AffineDecrypt(String str, int m, int c)
         {
-            return "";
+            int initialchar, finalchar, mInverse,temp;
+            string output = "";
+            for(int i = 0; i < str.Length; i ++)
+            {
+                if(isLetter(str[i]))
+                {
+                    initialchar = CharToInt(str[i]);
+                    mInverse = ModularMultiplicativeInverse(m);
+                    temp = initialchar - c;
+
+                    if(temp < 0)
+                    {
+                        temp = 26 - (Math.Abs(temp) % 26);
+                    }
+                    else
+                    {
+                        temp %= 26;
+                    }
+
+                    finalchar = (mInverse * (temp)) % 26;
+                    output += IntToChar(finalchar);
+                }
+                else
+                {
+                    output += str[i];
+                }
+            }
+
+            return output;
         }
 
         public static char ShiftChar(char x, int shift)

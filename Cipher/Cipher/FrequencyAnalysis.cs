@@ -52,36 +52,25 @@ namespace Cipher
             return score;
         }
 
-        public static double[] getScores(String text)
+        
+
+        public static int Predict(String[] options)
         {
-            double[] scores = new double[26];
+            int bestGuessIndex = 0;
+            double bestScore = getStringScore(options[0]);
 
-            for (int i = 0; i < 26; i++)
+            double tempScore;
+            for(int i = 0; i < options.Length; i ++)
             {
-                scores[i] = getStringScore(Encrypter.ShiftString(text, i));
-            }
-
-            return scores;
-        }
-
-        public static int PredictShiftValue(String text)
-        {
-            text = text.ToUpper();
-            double[] scores = getScores(text);
-           
-            int minindex = 0;
-            double minval = scores[0];
-            for (int i = 0; i < 26; i ++)
-            {
-                if(scores[i] < minval)
+                tempScore = getStringScore(options[i]);
+                if(bestScore > tempScore)
                 {
-                    minindex = i;
-                    minval = scores[i];
+                    bestScore = tempScore;
+                    bestGuessIndex = i;
                 }
             }
-            
-            
-            return minindex;
+            return bestGuessIndex;
         }
+
     }
 }
