@@ -43,7 +43,7 @@ namespace Cipher
         {
             int count = 0;
             double a;
-            while(true)
+            while(count<26)
             {
                 //a = inverse of x
                 a = (1 + (count * 26)) / (double)x;
@@ -57,6 +57,7 @@ namespace Cipher
                     count++;
                 }
             }
+            return 0;
         }
 
         public static String AffineDecrypt(String str, int m, int c)

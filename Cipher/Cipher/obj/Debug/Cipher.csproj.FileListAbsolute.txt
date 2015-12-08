@@ -7,3 +7,12 @@ E:\Users\Kalininator\Documents\GitHub\Cipher\Cipher\Cipher\obj\Debug\Cipher.Prop
 E:\Users\Kalininator\Documents\GitHub\Cipher\Cipher\Cipher\obj\Debug\Cipher.csproj.GenerateResource.Cache
 E:\Users\Kalininator\Documents\GitHub\Cipher\Cipher\Cipher\obj\Debug\Cipher.exe
 E:\Users\Kalininator\Documents\GitHub\Cipher\Cipher\Cipher\obj\Debug\Cipher.pdb
+C:\Users\Kal\Documents\GitHub\Cipher\Cipher\Cipher\bin\Debug\Cipher.exe.config
+C:\Users\Kal\Documents\GitHub\Cipher\Cipher\Cipher\obj\Debug\Cipher.exe
+C:\Users\Kal\Documents\GitHub\Cipher\Cipher\Cipher\obj\Debug\Cipher.pdb
+C:\Users\Kal\Documents\GitHub\Cipher\Cipher\Cipher\bin\Debug\Cipher.exe
+C:\Users\Kal\Documents\GitHub\Cipher\Cipher\Cipher\bin\Debug\Cipher.pdb
+C:\Users\Kal\Documents\GitHub\Cipher\Cipher\Cipher\obj\Debug\Cipher.csprojResolveAssemblyReference.cache
+C:\Users\Kal\Documents\GitHub\Cipher\Cipher\Cipher\obj\Debug\Cipher.form_main.resources
+C:\Users\Kal\Documents\GitHub\Cipher\Cipher\Cipher\obj\Debug\Cipher.Properties.Resources.resources
+C:\Users\Kal\Documents\GitHub\Cipher\Cipher\Cipher\obj\Debug\Cipher.csproj.GenerateResource.Cache
