@@ -28,9 +28,9 @@ namespace Cipher
 
             foreach (char x in text)
             {
-                if (Encrypter.isLetter(x))
+                if (Util.isLetter(x))
                 {
-                    count[Encrypter.CharToInt(x)]++;
+                    count[Util.CharToInt(x)]++;
                 }
 
             }

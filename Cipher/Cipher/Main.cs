@@ -59,14 +59,14 @@ namespace Cipher
         //AFFINE CIPHER
         private void encrypt_affine()
         {
-            txtbox_output.Text = Encrypter.AffineEncrypt(txtbox_input.Text,int.Parse(affine_inp_m.SelectedItem.ToString()),(int)affine_inp_c.Value);
+            txtbox_output.Text = Affine.AffineEncrypt(txtbox_input.Text,int.Parse(affine_inp_m.SelectedItem.ToString()),(int)affine_inp_c.Value);
         }
         private void decrypt_affine()
         {
 
             if(affine_radiosetformula.Checked)
             {
-                txtbox_output.Text = Encrypter.AffineDecrypt(txtbox_input.Text, int.Parse(affine_inp_m.SelectedItem.ToString()), (int)affine_inp_c.Value);
+                txtbox_output.Text = Affine.AffineDecrypt(txtbox_input.Text, int.Parse(affine_inp_m.SelectedItem.ToString()), (int)affine_inp_c.Value);
             }
             else
             {
@@ -78,13 +78,13 @@ namespace Cipher
         private void decrypt_affine_predict()
         {
             //generate list of all possible outputs
-            String[] options = new String[Encrypter.affineCoprimeOptions.Length * 26];
+            String[] options = new String[Affine.affineCoprimeOptions.Length * 26];
             txtbox_output.Text = "";
-            for(int m = 0; m < Encrypter.affineCoprimeOptions.Length; m ++)
+            for(int m = 0; m < Affine.affineCoprimeOptions.Length; m ++)
             {
                 for(int c = 0; c < 26; c ++)
                 {
-                    options[(26* m) + c] = Encrypter.AffineDecrypt(txtbox_input.Text,m,c);
+                    options[(26* m) + c] = Affine.AffineDecrypt(txtbox_input.Text,m,c);
                 }
             }
             txtbox_output.Text = options[FrequencyAnalysis.Predict(options)];
@@ -94,7 +94,7 @@ namespace Cipher
         //CAESAR CIPHER
         private void encrypt_caesar()
         {
-            txtbox_output.Text = Encrypter.ShiftString(txtbox_input.Text.ToUpper(), -(int)inp_shiftvalue.Value);
+            txtbox_output.Text = Util.ShiftString(txtbox_input.Text.ToUpper(), -(int)inp_shiftvalue.Value);
         }
         private void decrypt_caesar()
         {
@@ -104,12 +104,12 @@ namespace Cipher
                 for(int i = 1; i < 26; i ++)
                 {
                     txtbox_output.Text += ("Shift by " + i + ":" + System.Environment.NewLine);
-                    txtbox_output.Text += Encrypter.ShiftString(txtbox_input.Text.ToUpper(), i) + System.Environment.NewLine + System.Environment.NewLine;
+                    txtbox_output.Text += Util.ShiftString(txtbox_input.Text.ToUpper(), i) + System.Environment.NewLine + System.Environment.NewLine;
                 }
             }
             else if (caesar_radiobutton_generatesinglevalue.Checked)
             {
-                txtbox_output.Text = Encrypter.ShiftString(txtbox_input.Text.ToUpper(), (int)inp_shiftvalue.Value);
+                txtbox_output.Text = Util.ShiftString(txtbox_input.Text.ToUpper(), (int)inp_shiftvalue.Value);
             }
             else if(caesar_radiobutton_predict.Checked)
             {
@@ -119,7 +119,7 @@ namespace Cipher
                 
                 for(int i = 0; i < options.Length; i ++)
                 {
-                    options[i] = Encrypter.ShiftString(txtbox_input.Text,i);
+                    options[i] = Util.ShiftString(txtbox_input.Text,i);
                 }
 
                 txtbox_output.Text = options[FrequencyAnalysis.Predict(options)];
